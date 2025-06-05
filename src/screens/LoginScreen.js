@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, Text } from 'react-native';
+import { View, TextInput, Button,TouchableOpacity, Text,StyleSheet } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
   const [username, setUsername] = useState('');
@@ -16,22 +16,61 @@ export default function LoginScreen({ navigation }) {
   };
 
   return (
-    <View style={{ padding: 20 }}>
+    <View style={styles.container}>
       <Text style={{ fontSize: 20, marginBottom: 20 }}>Login</Text>
-      <TextInput
-        placeholder="Username"
-        value={username}
+       <TextInput
+        style={styles.input}
+        placeholder="Email"
+        keyboardType="email-address"
+        autoCapitalize="none"
         onChangeText={setUsername}
-        style={{ borderWidth: 1, marginBottom: 10, padding: 10 }}
+        value={username}
       />
+
       <TextInput
+        style={styles.input}
         placeholder="Password"
-        value={password}
-        onChangeText={setPassword}
         secureTextEntry
-        style={{ borderWidth: 1, marginBottom: 20, padding: 10 }}
+        autoCapitalize="none"
+        onChangeText={setPassword}
+        value={password}
       />
-      <Button title="Login" onPress={handleLogin} />
+
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+  },
+  title: {
+    fontSize: 28,
+    marginBottom: 24,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#aaa',
+    padding: 12,
+    marginBottom: 16,
+    borderRadius: 8,
+  },
+  button: {
+    backgroundColor: '#0066cc',
+    padding: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 12,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+});
