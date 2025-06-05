@@ -8,6 +8,7 @@ export default function LoginScreen({ navigation }) {
   const handleLogin = () => {
     if (username === 'admin' && password === '1234') {
       navigation.navigate('Patients');
+      navigation.replace('HomeTabs');
     } else if (username === 'doc' && password === '1234') {
       navigation.navigate('Practitioner');
     } else {
