@@ -26,8 +26,8 @@ export default function PatientsScreen() {
   // Add more...
 ];
 const viewPatientDetails = (patientId) => {
-    console.log('View details for patient:', patientId);
-    navigation.navigate('PatientDetail', { id: patientId });
+    const selectedPatient = samplePatients.find(p => p.patientId === patientId);
+    navigation.navigate('PatientDetails', { patient: selectedPatient });
   };
   return (
     <SafeAreaView>
