@@ -69,7 +69,8 @@ export default PatientsGrid;
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
+    padding: 0,
+    paddingTop:10,
   },
   columnWrapper: {
     justifyContent: 'space-between',
@@ -78,7 +79,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 10,
     padding: 10,
-    marginBottom: 12,
+    marginBottom: 7,
     elevation: 3,
     shadowColor: '#000',
     shadowOpacity: 0.1,
